@@ -20,11 +20,16 @@
 		WHERE ID = #{id}
 	</select>
 	
-	<delete id="selectDELET" parameterType="Long">
-		SELECT ID, PRODUCT_NAME, PRODUCT_PRICE, PRODUCT_STOCK
-		FROM TBL_PRODUCT
+	<delete id="delete" parameterType="Long">
+		DELETE FROM TBL_PRODUCT
 		WHERE ID = #{id}
 	</delete>
+	
+	<update id="update" parameterType="ProductVO">
+      UPDATE TBL_PRODUCT
+      SET PRODUCT_NAME = #{productName}, PRODUCT_PRICE = #{productPrice}, PRODUCT_STOCK = #{productStock}
+      WHERE ID = #{id}
+   </update>
 </mapper>
 
 

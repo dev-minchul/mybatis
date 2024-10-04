@@ -1,6 +1,5 @@
 package com.app.dao;
 
-import java.lang.foreign.Linker.Option;
 import java.util.List;
 import java.util.Optional;
 
@@ -36,7 +35,9 @@ public class ProductDAO {
 		return Optional.ofNullable(sqlSession.selectOne("product.select", id));
 	}
 // 상품 수정
-	
+	public void update(ProductVO productVO) {
+		sqlSession.update("product.update", productVO);
+	}
 // 상품 삭제
 	 public void delete(Long id) {
 	        sqlSession.delete("product.delete", id);
